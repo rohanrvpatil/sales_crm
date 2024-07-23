@@ -10,23 +10,39 @@ class CRM:
         self.db_name = db_name
 
         self.customers = []
-        self.next_id = 1
+        #self.next_id = self.get_next_id()
+
+    
+    """
+    def get_next_id(self):
+        conn = sqlite3.connect(self.db_name)
+        c = conn.cursor()
+        c.execute("SELECT COALESCE(MAX(customer_id), 0) FROM customers")
+        max_id = c.fetchone()[0]
+        conn.close()
+
+        if max_id is None:
+            return 1  # Start with ID 1 if no customers are present
+        else:
+            return max_id + 1  # Increment the highest ID found
+    """
+    
 
     
     
     def add_customer(self, customer):
-        customer.customer_id = self.next_id
+        #customer.customer_id = self.next_id
         conn = sqlite3.connect(self.db_name)
         c = conn.cursor()
 
         c.execute('''
         INSERT INTO customers (customer_id, name, email, phone, address, notes)
         VALUES (?, ?, ?, ?, ?, ?)
-        ''', (customer.customer_id, customer.name, customer.email, customer.phone, customer.address, customer.notes))
+        ''', (None, customer.name, customer.email, customer.phone, customer.address, customer.notes))
         conn.commit()
 
         conn.close()
-        self.next_id += 1
+        #self.next_id += 1
         print("Customer added successfully.")
    
     

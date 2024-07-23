@@ -32,6 +32,7 @@ def main():
                 customer = Customer(None, name, email, phone, address, notes)
                 crm.add_customer(customer)
             elif choice == 2:
+                crm.customers = fo.load_customers()
                 crm.view_customers()
             elif choice == 3:
                 search_name = input("Enter the name to search: ")
