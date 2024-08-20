@@ -21,6 +21,7 @@ CREATE TABLE customers (
     product_usage INTEGER,
     account_manager TEXT,
     customer_segment TEXT,
-    customer_feedback TEXT
+    customer_feedback TEXT,
+    revenue INTEGER
 );
 
