@@ -1,3 +1,6 @@
+## Project Description:  
+A CRM system to log details of customers.  
+
 ## Concepts Implemented:
 
 **Month 1-2: Python Programming (Beginner)**
